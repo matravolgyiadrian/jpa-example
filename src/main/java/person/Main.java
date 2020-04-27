@@ -37,9 +37,10 @@ public class Main {
 
     public static void main(String[] args) {
 
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("person");
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("jpa-example");
         EntityManager em = emf.createEntityManager();
 
+        em.getTransaction().begin();
         for(int i=0; i<147; i++){
             em.persist(randomPerson());
         }
